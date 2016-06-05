@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
+        $this->load->model('User_model','user');
 	    $this->topNavCss();
 	    $this->links();
 	    $this->footerJs();
@@ -38,53 +39,7 @@ class MY_Controller extends CI_Controller{
     }
 
     public function links(){
-	$this->data['links'] = array(
-		array(
-			"icon" => "fa fa-bar-chart-o",
- 			"text" => "Dashboard Test",
-			"controller" => "dashboard",
-			"href" => "#",
-			"function" => "add",
-			"child" => array(
-				array(
-					"text" => "Add Dashboard",
-					"controller" => "Dashboard",
-					"href" => "dashboard/add",
-					"function" => "view"
-				),
-				array(
-					"text" => "Add Dashboard",
-	                                "controller" => "Dashboard",
-					"href" => "dashboard/add",
-        	                        "function" => "view"
-				)
-
-			)	
-		),
-		array(
-                        "icon" => "fa fa-bar-chart-o",
-                        "text" => "Dashboard Test",
-                        "controller" => "dashboard",
-		        "href" => "#",
-                        "function" => "add",
-                        "child" => array(
-				 array(
-                                        "text" => "Add Dashboard",
-                                        "controller" => "Dashboard",
-                                        "href" => "dashboard/add",
-                                        "function" => "view"
-                                )
-                        )
-                ),	
-		array(
-                        "icon" => "fa fa-bar-chart-o",
-                        "text" => "No Child",
-			"href" => "dashboard/add",
-                        "controller" => "dashboard",
-                        "function" => "add"
-                )
-
-	);
+	$this->data['links'] = $this->user->get_roles();
     }
 
 }

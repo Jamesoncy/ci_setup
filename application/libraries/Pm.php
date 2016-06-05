@@ -1,8 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-////////////////
-// author : Reypme
-// date: Dec 12, 2013
-// PM stands for PAGE MAKER
 class Pm {
 	var $code="";
 
